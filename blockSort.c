@@ -21,7 +21,7 @@ void mergeInPlace(int arr[], int left, int mid, int right) {    int i = left, j 
 }
 
 void blockSort(int arr[], int left, int right, int blockSize) {     int i = 0 , size = 0;
-    for (i = left; i <= right; i += blockSize)     insertionSort(arr, i, (i + blockSize - 1 < right) ? i + blockSize - 1 : right);
+    for (i = left; i <= right; i += blockSize)     insertionSort(arr, i, (i + blockSize - 1 < right)?     i + blockSize - 1     :     right);
     for (size = blockSize; size < right - left + 1; size *= 2)
         for (i = left; i <= right - size; i += 2 * size)    mergeInPlace(arr, i, i + size - 1, (i + 2 * size - 1 < right)?     i + 2 * size - 1     :     right);
 }
