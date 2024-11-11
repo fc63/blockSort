@@ -23,24 +23,18 @@ void mergeInPlace(int arr[], int left, int mid, int right) {    int i = left, j 
 
 void blockSort(int arr[], int left, int right, int blockSize) {     int i = 0 , size = 0;
 
-    for (i = left; i <= right; i += blockSize) insertionSort(arr, i, (i + blockSize - 1 < right) ? i + blockSize - 1 : right);
+    for (i = left; i <= right; i += blockSize)     insertionSort(arr, i, (i + blockSize - 1 < right) ? i + blockSize - 1 : right);
 
     for (size = blockSize; size < right - left + 1; size *= 2)
-        for (i = left; i <= right - size; i += 2 * size)    mergeInPlace(arr, i, i + size - 1, (i + 2 * size - 1 < right) ? i + 2 * size - 1 : right);
+        for (i = left; i <= right - size; i += 2 * size)    mergeInPlace(arr, i, i + size - 1, (i + 2 * size - 1 < right)?     i + 2 * size - 1     :     right);
 }
 
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
+void printArray(int arr[], int size) {     int i = 0;
+    for (i = 0; i < size; i++)     printf("%d ", arr[i]);
     printf("\n");
 }
 
-int main() {
-    int arr[] = {12, 11, 13, 5, 6, 7, 8, 7, 8};
-    int arrSize = sizeof(arr) / sizeof(arr[0]);
-    int blockSize = 2; 
-
+int main() {     int arr[] = {12, 11, 13, 5, 6, 7, 8, 7, 8}, arrSize = sizeof(arr) / sizeof(arr[0]), blockSize = 2; 
     printf("Original: \n");
     printArray(arr, arrSize);
 
