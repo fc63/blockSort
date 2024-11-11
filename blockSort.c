@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 void insertionSort(int arr[], int left, int right) {    int key = 0, j = 0, i = 0;
-
     for (i = left + 1; i <= right; i++) {   key = arr[i], j = i - 1;
         while (j >= left && arr[j] > key)     arr[j-- + 1] = arr[j];
         arr[j + 1] = key;
@@ -22,9 +21,7 @@ void mergeInPlace(int arr[], int left, int mid, int right) {    int i = left, j 
 }
 
 void blockSort(int arr[], int left, int right, int blockSize) {     int i = 0 , size = 0;
-
     for (i = left; i <= right; i += blockSize)     insertionSort(arr, i, (i + blockSize - 1 < right) ? i + blockSize - 1 : right);
-
     for (size = blockSize; size < right - left + 1; size *= 2)
         for (i = left; i <= right - size; i += 2 * size)    mergeInPlace(arr, i, i + size - 1, (i + 2 * size - 1 < right)?     i + 2 * size - 1     :     right);
 }
