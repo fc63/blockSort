@@ -33,7 +33,7 @@ public final class BlockSort extends Sort {
 
     @Override
     public void runSort(int[] array, int length, int bucketCount) {
-        int blockSize = 4; // Örneğin 4 elemanlık bloklar
+        int blockSize = 4;
         for (int i = 0; i <= length - 1; i += blockSize) {
             insertionSort(array, i, Math.min(i + blockSize - 1, length - 1));
         }
